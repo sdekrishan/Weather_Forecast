@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Weather</title>
+    <style>
+        
+    .mapouter{
+        position:relative;
+        text-align:right;
+        height:100px;
+        width:500px;
+    }
+    .gmap_canvas {
+        overflow:hidden;
+        background:none!important;
+
+    }
+    body{
+        background-image: linear-gradient(to top, #fffbd5, #b20a2c); 
+       }
+    #navbar{
+        height:60px;
+        width: 100%;
+        background-color: darkred;
+        text-align: center;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:white;
+        font-family: cursive;
+        position: absolute;
+        top:0;
+        left:0;
+
+    }
+    #container{
+        height: 300px;
+        width:450px;
+        margin:20px 6%;
+        font-family: Arial, Helvetica, sans-serif
+    }
+    #maincontent{
+        display: flex;
+        background-color:bisque;
+        height: max-content;
+        border-radius: 10px;
+        margin:70px auto;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+    .mapouter{
+        border:1px solid black;
+        height:40%;
+        width:40%;
+        margin:6% 7%;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+    iframe{
+        border-radius: 10px;
+    }
+    .gmap_canvas>iframe{
+        width:100%; 
+    }
+    #search{
+        margin:20px auto;
+    }
+    #search>input{
+        height:30px;
+        width:500px;
+        padding-left: 20px;
+        margin-left: 50px;
+        margin-top: 70px;
+        border-radius: 5px;
+        border:1px solid black;
+    }
+    #search>button{
+        height:34px;
+        width:100px;
+        margin-left: -105px;
+        color:white;    
+        background-color: #48484A;
+        border-radius: 5px;
+    }
+    #cloud{
+        width:150px;
+        height:50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:0px 20px;
+    }
+    #cloud>img{
+    width:50%;
+    height: max-content;
+    }
+    #date{
+        font-size: 20px;
+        color:orange;
+    }
+    #name{
+        font-size: 40px;
+        font-weight: 600;
+        margin-top: -20px;
+        color:#48484A
+    }
+    #temp{
+        font-size: 45px;
+        font-weight: 550;
+        color:#48484A;
+    }
+    #grid{
+        width:400px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(auto,10px);
+        gap:1px 10px;
+        line-height: 20px;
+        font-size: 20px;
+        font-weight: 500;
+        color:#48484A;
+        margin-left: 10px;
+        border-left: 3px solid orange;
+    
+    }
+    #grid>p{
+        color:#48484A;
+        margin:10px;
+    }
+    h2{
+        color:#48484A;
+    }
+    </style>
+</head>
+<body>
+    <div id="navbar">Weather Forcast</div>
+    <div id="search">
+        <input type="text" placeholder="Enter City name" id="city">
+    <button onclick="getWeather()">Submit</button>
+    </div>
+    
+    <div id="maincontent">
+        <div id="container">
+            <p id="date"></p>
+            <p id="name"></p>
+            <div id="cloud">
+               
+                <img src="https://www.freeiconspng.com/thumbs/rain-png/rain-clouds-png-27.png" alt="">
+                <p id="temp"></p> 
+            </div>
+            <h2 id="feel"></h2>
+            <div id="grid">
+                <p id="hum"></p>
+                <p id="press"></p>
+                <p id="mintemp"></p>
+                <p id="maxtemp"></p>
+                <p id="visi"></p>
+
+            </div>
+           
+        </div>
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="700" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=bahadurgarh&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+               
+                <br>
+                
+                </div>
+            </div>
+    </div>
+    
+</body>
+</html>
+<script src="index.js"></script>
